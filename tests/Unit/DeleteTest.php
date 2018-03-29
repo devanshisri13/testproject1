@@ -36,4 +36,14 @@ class DeleteTest extends TestCase
         $car_make=$car->Make;
         $this->assertContains($car_make,['ford','honda','toyota']);
     }
+    public function testCarModelString()
+    {
+        $car = car::find(18);
+        $carmodel = (string)$car->Model;
+        $this->assertInternalType('string', $carmodel);
+    }
+
+
+
+
 }
