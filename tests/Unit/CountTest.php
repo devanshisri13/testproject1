@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
+use App\car;
 
 class CountTest extends TestCase
 {
@@ -20,5 +21,10 @@ class CountTest extends TestCase
         $recordCount = $user->count();
         $this->assertEquals(50, $recordCount);
     }
-
+public function testCountCar()
+{
+    $car = car::All();
+    $carCount = $car->count();
+    $this->assertEquals(50, $carCount);
+}
 }
