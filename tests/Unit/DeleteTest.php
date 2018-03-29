@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
+use App\car;
 
 
 class DeleteTest extends TestCase
@@ -25,5 +26,10 @@ class DeleteTest extends TestCase
         $user->save();
         $this->assertTrue($user->delete());
     }
-
+    public function testCarYearInteger()
+    {
+        $car = car::find(10);
+        $car_year= (int)$car->year;
+        $this->assertInternalType('integer',$car_year);
+    }
 }
